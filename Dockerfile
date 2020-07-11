@@ -11,6 +11,6 @@ RUN git clone -q -b 0.3.7 https://github.com/flatpak/flat-manager && \
 
 FROM registry.fedoraproject.org/fedora-minimal:32
 
-COPY --from=builder /code/flat-manager /usr/local/bin/flat-manager
+COPY --from=builder /code/target/release/flat-manager /usr/local/bin/flat-manager
 
 ENTRYPOINT ["/usr/local/bin/flat-manager"]
