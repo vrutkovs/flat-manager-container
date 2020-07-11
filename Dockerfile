@@ -9,7 +9,11 @@ RUN git clone -q -b 0.3.7 https://github.com/flatpak/flat-manager && \
     cd flat-manager && \
     cargo build --release
 
-FROM registry.fedoraproject.org/fedora-minimal:32
+FROM registry.fedoraproject.org/fedora:32
+
+RUN dnf update -y && \
+    dnf install libpq -y && \
+    dnf clean all
 
 COPY --from=builder /code/flat-manager/target/release/delta-generator-client /usr/local/bin
 COPY --from=builder /code/flat-manager/target/release/flat-manager /usr/local/bin
