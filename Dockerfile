@@ -12,7 +12,7 @@ RUN git clone -q -b 0.3.7 https://github.com/flatpak/flat-manager && \
 FROM registry.fedoraproject.org/fedora:32
 
 RUN dnf update -y && \
-    dnf install libpq flatpak gnupg2 -y && \
+    dnf install libpq flatpak gnupg2 ostree -y && \
     dnf clean all
 
 # Add dedicated flatmanager user
