@@ -13,4 +13,4 @@ FROM registry.fedoraproject.org/fedora-minimal:32
 
 COPY --from=builder /code/flat-manager /usr/local/bin/flat-manager
 
-ENTRYPOINT ["/code/target/release/flat-manager"]
+ENTRYPOINT ["/usr/local/bin/flat-manager"]
